@@ -1,0 +1,179 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --mainWhite: #f2f3f7;
+  --buttonWhite:-2px -2px 5px rgba(255,255,255,1),
+                  3px 3px 5px rgba(0,0,0,.07);
+
+  --buttonWhiteActive:inset -2px -2px 5px rgba(255,255,255,1),
+                      inset 3px 3px 5px rgba(0,0,0,.07);
+
+  --iconWhiteVer:#cc0001;
+  --mainDark:#222;
+
+  --buttonDark:inset -2px -2px 5px rgba(0,0,0,0.5),
+                     inset 3px 3px 5px rgba(255,255,255,.07);
+
+  --buttonDarkActive:-2px -2px 5px rgba(0,0,0,0.5),
+                  3px 3px 5px rgba(255,255,255,.07);
+
+  --iconDarkVer:#66ff00 ;
+
+  --iconDarkVerActive:0 0 10px rgb(231, 238, 243),
+                       0 0 10px rgb(255, 255, 255);
+
+  --iconDarkLine:0 0 10px rgba(235, 235, 235, 0.5),
+                0 0 20px rgba(239, 248, 255, 0.5),
+                0 0 30px rgba(255, 255, 255, 0.5),
+            inset 0 0 10px rgba(255, 255, 255, 0.5),;
+}
+
+ body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+  min-height: 100vh;
+  transition: 0.5s;
+}
+.neumorphism {
+  background: var(--mainWhite);
+}
+.neumorphism .switch {
+  background: var(--mainWhite);
+  box-shadow: var(--buttonWhite);
+}
+ .neumorphism .switch input[type="checkbox"] ~ .icon_box {
+  background: var(--mainWhite);
+  box-shadow: var(--buttonWhite);
+}
+.neumorphism .switch input[type="checkbox"] ~ .icon_box i {
+  color: var(--iconWhiteVer);
+}
+.neumorphism .switch input[type="checkbox"]:checked ~ .icon_box {
+  box-shadow: var(--buttonWhiteActive);
+}
+.dark {
+  background: var(--mainDark);
+}
+.dark .switch {
+  background: var(--mainDark);
+  box-shadow: var(--buttonDark);
+}
+.dark .switch input[type="checkbox"] ~ .icon_box {
+  background: var(--mainDark);
+  box-shadow: var(--buttonDark);
+}
+.dark .switch input[type="checkbox"] ~ .icon_box i {
+  color: var(--iconDarkVer);
+}
+ .dark .switch input[type="checkbox"]:checked ~ .icon_box {
+  box-shadow: var(--buttonDarkActive);
+}
+.dark .switch input[type="checkbox"]:checked ~ .icon_box i {
+  text-shadow: var(--iconDarkVerActive);
+  color: white;
+}
+
+.switch {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  padding: 20px;
+}
+.switch_box {
+  position: relative;
+  list-style: none;
+  text-align: center;
+  margin: 15px;
+}
+.switch_box label{
+  position: relative;
+}
+.switch_box label input[type="checkbox"] {
+  position: relative;
+  opacity: 0;
+  cursor: pointer;
+}
+.switch_box label input[type="checkbox"] ~ .icon_box{
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.switch_box label input[type="checkbox"] ~ .icon_box i{
+  font-size: 20px;
+}
+.switch_box label input[type="checkbox"]:checked ~ .icon_box i{
+  transform: scale(0.95);
+}
+
+.on_off {
+        position: relative;
+        width: 100px;
+        height: 55px;
+        margin: 15px;
+        font: 600 15px Arial;
+        border-radius: 100px;
+      }
+      .on_off input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 100px;
+        background:var(--mainWhite);
+        box-shadow:var(--buttonWhiteActive);
+         -webkit-transition: 0.3s;
+        transition: 0.4s ease ease;
+        color:var(--mainDark);
+      }
+      .slider:before {
+        position: absolute;
+        content: "LIGHT";
+        text-align: center;
+        line-height: 45px;
+        width: 45px;
+        height: 45px;
+        left: 10px;
+        bottom: 5px;
+        background: var(--mainWhite);
+        box-shadow:var(--buttonWhite);
+         border-radius: 100px;
+        transition: 0.4s;
+      }
+      input:checked + .slider{
+        background: var(--mainDark);
+        box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.05),
+                    inset 2px 2px 6px rgba(0,0,0,0.5);
+        transition: 0.4s;
+      }
+input:checked + .slider:before
+{
+  content: "DARK";
+  transform: translateX(36px);
+  background: var(--mainDark);
+  box-shadow: -2px -2px 6px rgba(255, 255,255, 0.05),
+              2px 2px 6px rgba(0, 0, 0, 0.5);
+ color: var(--mainWhite);
+ width: 45px;
+ height: 45px;
+ left: 10px;
+ bottom: 5px;
+ transition: 0.5s;
+
+}
